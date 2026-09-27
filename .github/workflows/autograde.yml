@@ -1,0 +1,28 @@
+name: 자동 채점
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  grade:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+          cache-dependency-path: requirements.txt
+
+      - name: 패키지 설치 (CPU 전용 PyTorch)
+        run: |
+          pip install torch torchvision --index-url https://download.pytorch.org/whl/cpu
+          pip install -r requirements.txt
+
+      - name: 채점
+        env:
+          YOLO_VERBOSE: 'False'
+        run: python tests/score.py

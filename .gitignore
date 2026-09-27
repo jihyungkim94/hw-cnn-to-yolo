@@ -1,0 +1,7 @@
+*.pt
+datasets/
+runs/
+data/
+__pycache__/
+score.json
+.ipynb_checkpoints/

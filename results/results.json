@@ -1,0 +1,6 @@
+{
+  "environment": null,
+  "smallcnn": {"params": null, "epochs": null, "test_acc": null, "train_seconds": null},
+  "yolo_cls": {"model": "yolov8n-cls.pt", "params": null, "epochs": null, "imgsz": null, "top1": null, "train_seconds": null},
+  "yolo_det": {"image": null, "detections": []}
+}
